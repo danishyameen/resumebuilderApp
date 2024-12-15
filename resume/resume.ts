@@ -160,11 +160,11 @@ let downloadResume: HTMLButtonElement | null = document.getElementById("download
 downloadResume?.addEventListener('click', (): void => {
    
     const options = {
-        margin:       2,       // PDF margin (in cm)
+        margin:       1,       // PDF margin (in cm)
         filename:     'generated.pdf',  // Output file name
         image:        { type: 'jpeg', quality: 0.98 },  // Image quality
         html2canvas:  { scale: 2 },   // Canvas scale (higher value = better quality)
-        jsPDF:        { unit: 'mm', format: 'a3', orientation: 'portrait' } // jsPDF options
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' } // jsPDF options
       };
       html2pdf().from(resumeArea).set(options).save();
         

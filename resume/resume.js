@@ -115,24 +115,18 @@ editResume.addEventListener("click", function () {
         }
     }, 500);
 });
-// function html2pdf(resumeArea: HTMLDivElement) {
-//     throw new Error("Function not implemented.");
-// }
 var html2pdf;
 var resumeArea = document.getElementById("resumeArea");
 var downloadResume = document.getElementById("downloadResume");
 downloadResume === null || downloadResume === void 0 ? void 0 : downloadResume.addEventListener('click', function () {
     var options = {
-        margin: 2, // PDF margin (in cm)
+        margin: 1, // PDF margin (in cm)
         filename: 'generated.pdf', // Output file name
         image: { type: 'jpeg', quality: 0.98 }, // Image quality
         html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
-        jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' } // jsPDF options
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } // jsPDF options
     };
     html2pdf().from(resumeArea).set(options).save();
-    //     console.log(resumeArea);
-    //    console.log(window);
-    //    html2pdf().from(resumeArea).save();
 });
 function getData() {
     var saveUsers = {
