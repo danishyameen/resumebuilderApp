@@ -124,7 +124,7 @@ downloadResume === null || downloadResume === void 0 ? void 0 : downloadResume.a
         filename: 'generated.pdf', // Output file name
         image: { type: 'jpeg', quality: 0.98 }, // Image quality
         html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
-        jsPDF: { unit: 'px', format: '[100%, 100%]', orientation: 'portrait' } // jsPDF options
+        jsPDF: { unit: 'px', format: 'a4', orientation: 'portrait' } // jsPDF options
     };
     html2pdf().from(resumeArea).set(options).save();
 });
