@@ -164,7 +164,7 @@ downloadResume?.addEventListener('click', (): void => {
         filename:     'generated.pdf',  // Output file name
         image:        { type: 'jpeg', quality: 0.98 },  // Image quality
         html2canvas:  { scale: 2 },   // Canvas scale (higher value = better quality)
-        jsPDF:        { unit: 'in', format: 'a3', orientation: 'landscape' } // jsPDF options
+        jsPDF:        { unit: 'in', format: 'a3', orientation: 'potrait' } // jsPDF options
       };
       html2pdf().from(resumeArea).set(options).save();
         
