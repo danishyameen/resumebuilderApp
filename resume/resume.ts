@@ -151,9 +151,6 @@ editResume.addEventListener("click",()=>{
     }, 500);
 })
 
-// function html2pdf(resumeArea: HTMLDivElement) {
-//     throw new Error("Function not implemented.");
-// }
 
 let html2pdf: any
 
