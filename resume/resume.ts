@@ -158,24 +158,39 @@ const resumeArea: HTMLDivElement = document.getElementById("resumeArea") as HTML
 const downloadResume: HTMLButtonElement = document.getElementById("downloadResume") as HTMLButtonElement;
 
 downloadResume.addEventListener('click', (): void => {
-  if (resumeArea) {
-    // Define PDF options
-    const options = {
-      margin: 0,                           // PDF margin (in cm)
-      filename: 'generated.pdf',           // Output file name
-      image: { type: 'jpeg', quality: 0.98 }, // Image quality
-      html2canvas: { scale: 2 },            // Canvas scale (higher value = better quality)
-      jsPDF: { unit: 'cm', format: 'a3', orientation: 'portrait' } // jsPDF options
-    };
+    let q = matchMedia("(max-width:1000px)") 
+    let f = matchMedia("(min-width:1000px)")
+    if (q.matches){
+        if(resumeArea){
+            var options = {
+                margin: 0, // PDF margin (in cm)
+                filename: 'generated.pdf', // Output file name
+                image: { type: 'jpeg', quality: 0.98 }, // Image quality
+                html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
+                jsPDF: { unit: 'cm', format: 'a5', orientation: 'portrait' } // jsPDF options
+            };
 
-    // Generate and save the PDF
-    html2pdf().from(resumeArea).set(options).save();
-  }
+            
+            html2pdf().from(resumeArea).set(options).save();
+        }
+    }
+    if (f.matches){
+        if(resumeArea){
+            var options = {
+                margin: 0, // PDF margin (in cm)
+                filename: 'generated.pdf', // Output file name
+                image: { type: 'jpeg', quality: 0.98 }, // Image quality
+                html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
+                jsPDF: { unit: 'cm', format: 'a3', orientation: 'portrait' } // jsPDF options
+            };
 
-  // Log the generated PDF (optional debugging step)
-  console.log('PDF generation triggered');
+            
+            html2pdf().from(resumeArea).set(options).save();
+        }
+    }
+    // Log the generated PDF (optional debugging step)
+    console.log('PDF generation triggered');
 });
-
 
 
 

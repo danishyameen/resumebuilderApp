@@ -119,17 +119,31 @@ var html2pdf;
 var resumeArea = document.getElementById("resumeArea");
 var downloadResume = document.getElementById("downloadResume");
 downloadResume.addEventListener('click', function () {
-    if (resumeArea) {
-        // Define PDF options
-        var options = {
-            margin: 0, // PDF margin (in cm)
-            filename: 'generated.pdf', // Output file name
-            image: { type: 'jpeg', quality: 0.98 }, // Image quality
-            html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
-            jsPDF: { unit: 'cm', format: 'a3', orientation: 'portrait' } // jsPDF options
-        };
-        // Generate and save the PDF
-        html2pdf().from(resumeArea).set(options).save();
+    var q = matchMedia("(max-width:1000px)");
+    var f = matchMedia("(min-width:1000px)");
+    if (q.matches) {
+        if (resumeArea) {
+            var options = {
+                margin: 0, // PDF margin (in cm)
+                filename: 'generated.pdf', // Output file name
+                image: { type: 'jpeg', quality: 0.98 }, // Image quality
+                html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
+                jsPDF: { unit: 'cm', format: 'a5', orientation: 'portrait' } // jsPDF options
+            };
+            html2pdf().from(resumeArea).set(options).save();
+        }
+    }
+    if (f.matches) {
+        if (resumeArea) {
+            var options = {
+                margin: 0, // PDF margin (in cm)
+                filename: 'generated.pdf', // Output file name
+                image: { type: 'jpeg', quality: 0.98 }, // Image quality
+                html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
+                jsPDF: { unit: 'cm', format: 'a3', orientation: 'portrait' } // jsPDF options
+            };
+            html2pdf().from(resumeArea).set(options).save();
+        }
     }
     // Log the generated PDF (optional debugging step)
     console.log('PDF generation triggered');
