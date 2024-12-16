@@ -161,11 +161,11 @@ downloadResume.addEventListener('click', (): void => {
   if (resumeArea) {
     // Define PDF options
     const options = {
-      margin: 1,                           // PDF margin (in cm)
+      margin: 0,                           // PDF margin (in cm)
       filename: 'generated.pdf',           // Output file name
       image: { type: 'jpeg', quality: 0.98 }, // Image quality
       html2canvas: { scale: 2 },            // Canvas scale (higher value = better quality)
-      jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' } // jsPDF options
+      jsPDF: { unit: 'cm', format: 'a3', orientation: 'portrait' } // jsPDF options
     };
 
     // Generate and save the PDF
