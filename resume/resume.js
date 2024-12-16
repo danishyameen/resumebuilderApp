@@ -122,7 +122,7 @@ downloadResume.addEventListener('click', function () {
     if (resumeArea) {
         // Define PDF options
         var options = {
-            margin: 0, // PDF margin (in cm)
+            margin: 1, // PDF margin (in cm)
             filename: 'generated.pdf', // Output file name
             image: { type: 'jpeg', quality: 0.98 }, // Image quality
             html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
