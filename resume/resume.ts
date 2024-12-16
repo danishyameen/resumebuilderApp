@@ -152,23 +152,30 @@ editResume.addEventListener("click",()=>{
 })
 
 
-let html2pdf: any
+let html2pdf: any;
 
-let resumeArea: HTMLDivElement | null = document.getElementById("resumeArea") as HTMLDivElement;
-let downloadResume: HTMLButtonElement | null = document.getElementById("downloadResume") as HTMLButtonElement;
+const resumeArea: HTMLDivElement = document.getElementById("resumeArea") as HTMLDivElement;
+const downloadResume: HTMLButtonElement = document.getElementById("downloadResume") as HTMLButtonElement;
 
-downloadResume?.addEventListener('click', (): void => {
-   
+downloadResume.addEventListener('click', (): void => {
+  if (resumeArea) {
+    // Define PDF options
     const options = {
-        margin:       1,       // PDF margin (in cm)
-        filename:     'generated.pdf',  // Output file name
-        image:        { type: 'jpeg', quality: 0.98 },  // Image quality
-        html2canvas:  { scale: 2 },   // Canvas scale (higher value = better quality)
-        jsPDF:        { unit: 'in', format: 'a3', orientation: 'potrait' } // jsPDF options
-      };
-      html2pdf().from(resumeArea).set(options).save();
-        
+      margin: 1,                           // PDF margin (in cm)
+      filename: 'generated.pdf',           // Output file name
+      image: { type: 'jpeg', quality: 0.98 }, // Image quality
+      html2canvas: { scale: 2 },            // Canvas scale (higher value = better quality)
+      jsPDF: { unit: 'mm', format: 'a3', orientation: 'portrait' } // jsPDF options
+    };
+
+    // Generate and save the PDF
+    html2pdf().from(resumeArea).set(options).save();
+  }
+
+  // Log the generated PDF (optional debugging step)
+  console.log('PDF generation triggered');
 });
+
 
 
 
