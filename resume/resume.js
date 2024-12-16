@@ -124,7 +124,7 @@ downloadResume.addEventListener('click', function () {
     if (q.matches) {
         if (resumeArea) {
             var options = {
-                margin: 1, // PDF margin (in cm)
+                margin: 2, // PDF margin (in cm)
                 filename: 'generated.pdf', // Output file name
                 image: { type: 'jpeg', quality: 0.98 }, // Image quality
                 html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
@@ -136,7 +136,7 @@ downloadResume.addEventListener('click', function () {
     if (f.matches) {
         if (resumeArea) {
             var options = {
-                margin: 1, // PDF margin (in cm)
+                margin: 2, // PDF margin (in cm)
                 filename: 'generated.pdf', // Output file name
                 image: { type: 'jpeg', quality: 0.98 }, // Image quality
                 html2canvas: { scale: 2 }, // Canvas scale (higher value = better quality)
