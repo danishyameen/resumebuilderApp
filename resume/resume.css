@@ -302,12 +302,17 @@ body{
 @media screen and (max-width:1000px) {
     .container {
         margin: 10px;
-        grid-template-columns: repeat(1, 1fr);
+        /* grid-template-columns: repeat(1, 1fr); */
     }
-
+    
 }
 
 @media screen and (max-width:600px) {
+    .container {
+        margin: 10px;
+        width: auto;
+        grid-template-columns: repeat(1.5, 2fr) !important;
+    }
     .about .box {
         flex-direction: column;
     }
