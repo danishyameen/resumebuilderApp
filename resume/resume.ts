@@ -163,6 +163,7 @@ downloadResume.addEventListener('click', (): void => {
     if (q.matches){
         if(resumeArea){
             var options = {
+                
                 margin: 2, // PDF margin (in cm)
                 filename: 'generated.pdf', // Output file name
                 image: { type: 'jpeg', quality: 0.98 }, // Image quality
